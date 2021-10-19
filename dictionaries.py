@@ -42,7 +42,10 @@ def without_duplicates(words):
         <class 'list'>
     """
 
-    return []
+    remove_repeats = set(words)
+
+    return list(remove_repeats)
+
 
 
 def find_unique_common_items(items1, items2):
@@ -78,7 +81,10 @@ def find_unique_common_items(items1, items2):
         [2]
     """
 
-    return set()
+    set_items1 = set(items1)
+    set_items2 = set(items2)
+
+    return set_items1 & set_items2
 
 
 def get_sum_zero_pairs(numbers):
@@ -107,8 +113,13 @@ def get_sum_zero_pairs(numbers):
         >>> sort_pairs( get_sum_zero_pairs([1, 3, -1, 1, 1, 0]) )
         [[-1, 1], [0, 0]]
     """
+    sum_0 = []
 
-    return []
+    no_repeats = list(set(numbers))
+
+    
+
+    return sum_0
 
 
 def top_chars(phrase):
