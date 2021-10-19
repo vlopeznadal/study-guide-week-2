@@ -27,5 +27,36 @@ class Exam(object):
         for question in self.questions:
             if question.ask_and_evaluate():
                 answer_tally += 1
-                
+
         return 100 * (float(answer_tally) / len(self.questions))
+
+class StudentExam():
+    def __init__(self, student, exam):
+        self.student = student
+        self.exam = exam
+        self.score = None
+
+    def take_test(self):
+        self.score = self.exam.administer()
+        print(f'Score: {self.score:.2f}')
+
+def example():
+
+    exam = Exam('Final')
+
+    question_1 = Question(
+        "What is the parent class for a non-inheriting Python class?", "object"
+    )
+    exam.add_question(question_1)
+
+    question_2 = Question(
+        "Which special method determines how to initialize instances?",
+        "__init__",
+    )
+    exam.add_question(question_2)
+
+    student = Student("Virginia", "Lopez Nadal", "0101 Computer Street")
+
+    virginia_exam = StudentExam(student, exam)
+    virginia_exam.take_test()
+
